@@ -1,0 +1,68 @@
+logging:
+   level:
+     root: INFO
+     com:
+       pmrodrigues: DEBUG
+     org:
+       springframework:
+         web:
+           client:
+             RestTemplate: DEBUG
+       apache:
+         http: DEBUG
+     httpclient:
+         wire: DEBUG
+
+com:
+    pmrodrigues:
+        rpg:
+            email:
+                from: marsilvarodrigues@gmail.com
+                new_author: src/main/resources/templates/new_author.html
+server:
+    compression:
+        enabled: true
+    port: 8080
+    servlet:
+        context-path: /api
+        encoding:
+            charset: UTF-8
+spring:
+    datasource:
+        driverClassName: org.h2.Driver
+        password: sa
+        url: jdbc:h2:mem:rpg
+        username: sa
+    jpa:
+        database: h2
+        database-platform: org.hibernate.dialect.H2Dialect
+        hibernate:
+            ddl-auto: create
+            format_sql: true
+            use_sql_comments: true
+        open-in-view: false
+        show-sql: true
+        properties:
+            hibernate:
+                generate_statistics: true
+                jdbc:
+                    batch_size: 10
+                    order_inserts: true
+                    order_updates: true
+    mail:
+        default-encoding: UTF-8
+        host: localhost
+        port: 3025
+        protocol: smtp
+        debug: true
+    task:
+        execution:
+            pool:
+                queue-capacity: 2
+        scheduling:
+            pool:
+                size: 100
+    data:
+        rest:
+            defaultMediaType: application/json
+            useHalAsDefaultJsonMediaType: false
